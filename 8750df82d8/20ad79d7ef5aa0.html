@@ -355,6 +355,140 @@ input[type=range]:focus::-ms-fill-upper{background:hsl(200,60%,55%)}.github-fork
         var sdflogoimg = new Image();
         sdflogoimg.src = "data:image/svg+xml;base64,"+b64 ;
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var checkboxes = [{
+        name: 'autoToxictoogle',
+        localStorageKey: 'autoToxictoogle',
+    }, {
+        name: 'addtransparent',
+        localStorageKey: 'Material Transparent',
+    }];
+    checkboxes.forEach(function(checkbox) {
+        setupCheckbox(checkbox)
+    });
+    var rangeInput = document.getElementById("emoteCapacity");
+    if (rangeInput) {
+        var savedValue = localStorage.getItem('Emote Capacity');
+        if (savedValue === null) {
+            savedValue = 4;
+            localStorage.setItem('Emote Capacity', savedValue)
+        }
+        rangeInput.value = savedValue;
+        document.getElementById("emoteCapacityValue").textContent = savedValue;
+        rangeInput.addEventListener("input", function() {
+            var currentValue = rangeInput.value;
+            document.getElementById("emoteCapacityValue").textContent = currentValue;
+            localStorage.setItem('Emote Capacity', currentValue)
+        })
+    }
+    var gemColorInput = document.querySelector('input[name="gemColor"]');
+    if (gemColorInput) {
+        var savedGemColor = localStorage.getItem('Gem Color');
+        if (savedGemColor === null) {
+            savedGemColor = '#FF0000';
+            localStorage.setItem('Gem Color', savedGemColor)
+        }
+        gemColorInput.value = savedGemColor;
+        gemColorInput.addEventListener("input", function() {
+            var currentGemColor = gemColorInput.value;
+            localStorage.setItem('Gem Color', currentGemColor)
+        })
+    }
+    var gemColor2Input = document.querySelector('input[name="gemColor2"]');
+    if (gemColor2Input) {
+        var savedGemColor2 = localStorage.getItem('Gem Color 2');
+        if (savedGemColor2 === null) {
+            savedGemColor2 = '#FF8080';
+            localStorage.setItem('Gem Color 2', savedGemColor2)
+        }
+        gemColor2Input.value = savedGemColor2;
+        gemColor2Input.addEventListener("input", function() {
+            var currentGemColor2 = gemColor2Input.value;
+            localStorage.setItem('Gem Color 2', currentGemColor2)
+        })
+    }
+    var materialcolor = document.querySelector('input[name="custommaterial"]');
+    if (materialcolor) {
+        var savedmaterialcolor = localStorage.getItem('Material Color');
+        if (savedmaterialcolor === null) {
+            savedmaterialcolor = '#FF1A1A';
+            localStorage.setItem('Material Color', savedmaterialcolor)
+        }
+        materialcolor.value = savedmaterialcolor;
+        materialcolor.addEventListener("input", function() {
+            var currentmaterialcolor = materialcolor.value;
+            localStorage.setItem('Material Color', currentmaterialcolor)
+        })
+    }
+    var materialcolor2 = document.querySelector('input[name="custommaterial2"]');
+    if (materialcolor2) {
+        var savedmaterialcolor2 = localStorage.getItem('Material Color2');
+        if (savedmaterialcolor2 === null) {
+            savedmaterialcolor2 = '#2DFF1A';
+            localStorage.setItem('Material Color2', savedmaterialcolor2)
+        }
+        materialcolor2.value = savedmaterialcolor2;
+        materialcolor2.addEventListener("input", function() {
+            var currentmaterialcolor2 = materialcolor2.value;
+            localStorage.setItem('Material Color2', currentmaterialcolor2)
+        })
+    }
+    var autoToxicInput = document.getElementById("autoToxic");
+    if (autoToxicInput) {
+        var savedAutoToxicValue = localStorage.getItem('autoToxic');
+        if (savedAutoToxicValue === null) {
+            savedAutoToxicValue = '';
+            localStorage.setItem('autoToxic', savedAutoToxicValue)
+        }
+        autoToxicInput.value = savedAutoToxicValue;
+        autoToxicInput.addEventListener("input", function() {
+            var currentAutoToxicValue = autoToxicInput.value;
+            localStorage.setItem('autoToxic', currentAutoToxicValue)
+        })
+    }
+    var matShininessInput = document.getElementById("materialshininess");
+    if (matShininessInput) {
+        var savedMatShininessValue = localStorage.getItem('Material Shininess');
+        if (savedMatShininessValue === null) {
+            savedMatShininessValue = '';
+            localStorage.setItem('Material Shininess', savedMatShininessValue)
+        }
+        matShininessInput.value = savedMatShininessValue;
+        matShininessInput.addEventListener("input", function() {
+            var currentMatShininessValue = matShininessInput.value;
+            localStorage.setItem('Material Shininess', currentMatShininessValue)
+        })
+    }
+    var cstomBumpScaleInput = document.getElementById("custmbumpscale");
+    if (cstomBumpScaleInput) {
+        var savedCstomBumpScaleValue = localStorage.getItem('Material Bumpscale');
+        if (savedCstomBumpScaleValue === null) {
+            savedCstomBumpScaleValue = '';
+            localStorage.setItem('Material Bumpscale', savedCstomBumpScaleValue)
+        }
+        cstomBumpScaleInput.value = savedCstomBumpScaleValue;
+        cstomBumpScaleInput.addEventListener("input", function() {
+            var currentCstomBumpScaleValue = cstomBumpScaleInput.value;
+            localStorage.setItem('Material Bumpscale', currentCstomBumpScaleValue)
+        })
+    }
+
+    function setupCheckbox({
+        name,
+        localStorageKey
+    }) {
+        var checkbox = document.querySelector('input[name="' + name + '"]');
+        if (!checkbox) {
+            return
+        }
+        var isChecked = localStorage.getItem(localStorageKey) === 'true';
+        checkbox.checked = isChecked;
+        checkbox.addEventListener('change', function() {
+            localStorage.setItem(localStorageKey, checkbox.checked)
+        })
+    }
+})</script>
     <script id="donatebox" type="text/x-template">
         <h2 data-translate="Buy Starblast and become an Elite Commander!"></h2>
         <ul>
